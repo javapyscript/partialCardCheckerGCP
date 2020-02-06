@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "4d107a0b-b2d7-41d2-a6b8-86028b60b0e4",
+		"name": "CardAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33b8578d-1eab-45c4-8a96-383e84f8a7ba",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\t\"trailDigits\": 5525,\r\n\t\t\"leadDigits\": 1234,\r\n\t\t\"cardType\": \"MasterCard\",\r\n\t\t\"startDate\": \"08.2012\",\r\n\t\t\"endDate\": \"08.2015\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/getCard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getCard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addCard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e07fd6a2-efc2-4917-a1b6-603accd7ad01",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"customer\": {\r\n\t\t\"firstName\": \"Chaitanya\",\r\n\t\t\"email\": \"chaitanya.bangera@rediff.com\"\r\n\t},\r\n\t\"cardDetails\": {\r\n\t\t\"trailDigits\": 5525,\r\n\t\t\"leadDigits\": 1234,\r\n\t\t\"cardType\": \"MasterCard\",\r\n\t\t\"startDate\": \"08.2012\",\r\n\t\t\"endDate\": \"08.2015\"\r\n\t}\r\n\t\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/addCard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addCard"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
